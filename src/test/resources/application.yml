@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: test
+---
+spring:
+  profiles: test
+  jpa:
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+          dialect: org.hibernate.dialect.H2Dialect
+          hbm2ddl:
+            auto: none
+        javax:
+          persistence:
+            validation:
+              mode: none
+  jackson:
+      serialization:
+        write-dates-as-timestamps: false
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test;INIT=RUNSCRIPT FROM 'classpath:schema.sql'
+    username: t
+    password:
+    initialize: true
+    sql-script-encoding: UTF-8
