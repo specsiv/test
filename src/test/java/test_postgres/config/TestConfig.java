@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"test_postgres"})
+@ComponentScan(basePackages = {"test_postgres.service"})
 @EntityScan(basePackages = {"test_postgres.jpa.entity"})
 @EnableJpaRepositories(basePackages = {"test_postgres.jpa.repository"})
 public class TestConfig {
