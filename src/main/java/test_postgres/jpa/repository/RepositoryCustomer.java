@@ -15,4 +15,6 @@ public interface RepositoryCustomer extends JpaRepository<Customer, Integer> {
     @Query(value = "select setval('customerseq', 0)", nativeQuery = true)
     void resetSequence();
     boolean existsById(int id);
+    boolean existsByFio(String fio);
+    Customer findByFio(String fio);
 }

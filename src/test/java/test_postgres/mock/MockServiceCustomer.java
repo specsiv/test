@@ -38,12 +38,22 @@ public class MockServiceCustomer implements ServiceCustomer {
     }
 
     @Override
+    public boolean customerCheck(String fio) {
+        return true;
+    }
+
+    @Override
     public List<Customer> getCustomersList() {
         return list;
     }
 
     @Override
     public Customer getCustomer(int id) {
+        return customer;
+    }
+
+    @Override
+    public Customer getCustomer(String fio) {
         return customer;
     }
 

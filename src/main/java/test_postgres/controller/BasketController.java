@@ -22,6 +22,11 @@ public class BasketController {
         return basket;
     }
 
+    @PostMapping("/addList")
+    public void addList(@RequestBody List<Basket> basketList) {
+        basketList.forEach(serviceBasket::save);
+    }
+
     @GetMapping("/getAll")
     public List<Basket> getAll(){
         return serviceBasket.getBasketsList();

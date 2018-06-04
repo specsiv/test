@@ -70,6 +70,11 @@ public class ServiceCustomerImpl implements ServiceCustomer {
     }
 
     @Override
+    public boolean customerCheck(String fio) {
+        return repository.existsByFio(fio);
+    }
+
+    @Override
     public List<Customer> getCustomersList() {
         return repository.findAll();
     }
@@ -83,6 +88,14 @@ public class ServiceCustomerImpl implements ServiceCustomer {
             if (customer != null) return customer;
             else throw new APINotFoundException("Клиента с таким id нет в базе!");
         }
+    }
+
+    @Override
+    public Customer getCustomer(String fio) {
+        Customer customer = repository.findByFio(fio);
+
+        if (customer != null) return customer;
+        else throw new APIIllegalArgumentException("Клиента с таким ФИО нет в базе!");
     }
 
     @Override

@@ -10,7 +10,9 @@ public interface ServiceCustomer {
     void delete(int id);
     boolean vipStatusCheck(int id);
     boolean customerCheck(int id);
+    boolean customerCheck(String fio);
     List<Customer> getCustomersList();
     Customer getCustomer(int id);
+    Customer getCustomer(String fio);
     Customer update(int id, Customer customerData);
 }

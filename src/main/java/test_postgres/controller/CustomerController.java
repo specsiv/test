@@ -22,6 +22,11 @@ public class CustomerController {
         return serviceCustomer.customerCheck(id);
     }
 
+    @GetMapping("/checkByName/{fio}")
+    public boolean customerCheck(@PathVariable String fio){
+        return serviceCustomer.customerCheck(fio);
+    }
+
     @GetMapping("/check/vip/{id}")
     public boolean vipStatusCheck(@PathVariable int id){
         return serviceCustomer.vipStatusCheck(id);
@@ -42,6 +47,11 @@ public class CustomerController {
     @GetMapping("/get/{id}")
     public Customer get(@PathVariable int id){
         return serviceCustomer.getCustomer(id);
+    }
+
+    @GetMapping("/getByName/{fio}")
+    public Customer get(@PathVariable String fio){
+        return serviceCustomer.getCustomer(fio);
     }
 
     @PutMapping("/update/{id}")
